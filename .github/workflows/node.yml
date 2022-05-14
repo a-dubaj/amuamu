@@ -24,13 +24,13 @@ jobs:
         with:
           payload: |
             {
-               "text": ":ghost: *Admin service* build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
+               "text": ":ghost: *AmuAmu build* build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
               "blocks": [
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": ":ghost: *Admin service* build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+                    "text": ":ghost: *AmuAmu build* build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
                   }
                 }
               ]
