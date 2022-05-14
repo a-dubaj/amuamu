@@ -3,11 +3,11 @@ import Popular from "../components/Popular";
 
 import React from 'react';
 
-function Home(){
-    return(
+function Home() {
+    return (
         <div>
-            <Veggie />
-            <Popular />
+            <Veggie/>
+            <Popular/>
         </div>
     )
 }
