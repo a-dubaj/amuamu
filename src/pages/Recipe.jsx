@@ -1,12 +1,13 @@
 import {useEffect, useState} from "react";
 import styled from 'styled-components';
 import {useParams} from "react-router-dom";
-
 import React from "react";
+
 function Recipe() {
 
     let params = useParams();
     const [details, setDetails] = useState({});
+    const [activeTab, setActiveTab] = useState('instruction');
 
     const fetchDetails = async () => {
         const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`);
@@ -18,16 +19,20 @@ function Recipe() {
         fetchDetails();
     }, [params.name]);
 
-    return<DetailWrapper>
-        <div>
-            <h2>{details.title}</h2>
-            <img src={details.image} alt="" />
-        </div>
-        <Info>
-            <Button>Instruction</Button>
-            <Button>Ingredients</Button>
-        </Info>
-    </DetailWrapper>;
+    return (
+        <DetailWrapper>
+            <div>
+                <h2>{details.title}</h2>
+                <img src={details.image} alt=""/>
+            </div>
+            <Info>
+                <Button className={activeTab === 'instructions' ? 'active' : ''}
+                        onClick={() => setActiveTab("instructions")}>Instruction</Button>
+                <Button className={activeTab === 'ingredients' ? 'active' : ''}
+                        onClick={() => setActiveTab("ingredients")}>Ingredients</Button>
+            </Info>
+        </DetailWrapper>
+    );
 }
 
 const DetailWrapper = styled.div`
@@ -60,7 +65,7 @@ const Button = styled.button`
   background: white;
   border: 2px solid black;
   font-weight: 600;
-`
+`;
 
 const Info = styled.div`
   margin-left: 10rem;
