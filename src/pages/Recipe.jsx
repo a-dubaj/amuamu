@@ -4,7 +4,6 @@ import {useParams} from "react-router-dom";
 import React from "react";
 
 function Recipe() {
-
     let params = useParams();
     const [details, setDetails] = useState({});
     const [activeTab, setActiveTab] = useState('instruction');
@@ -30,6 +29,13 @@ function Recipe() {
                         onClick={() => setActiveTab("instructions")}>Instruction</Button>
                 <Button className={activeTab === 'ingredients' ? 'active' : ''}
                         onClick={() => setActiveTab("ingredients")}>Ingredients</Button>
+                <div>
+                    <h3 dangerouslySetInnerHTML={{__html: details.summary}}></h3>
+                    <h3 dangerouslySetInnerHTML={{__html: details.instructions}}></h3>
+                </div>
+                <ul>
+                    {details.extendedIngredinets.map}
+                </ul>
             </Info>
         </DetailWrapper>
     );
