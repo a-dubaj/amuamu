@@ -6,7 +6,7 @@ import React from "react";
 function Recipe() {
 
     let params = useParams();
-    const [details, setDetails] = useState();
+    const [details, setDetails] = useState({});
 
     const fetchDetails = async () => {
         const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`);
@@ -23,6 +23,10 @@ function Recipe() {
             <h2>{details.title}</h2>
             <img src={details.image} alt="" />
         </div>
+        <Info>
+            <Button>Instruction</Button>
+            <Button>Ingredients</Button>
+        </Info>
     </DetailWrapper>;
 }
 
