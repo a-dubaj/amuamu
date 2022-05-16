@@ -25,9 +25,9 @@ function Recipe() {
                 <img src={details.image} alt=""/>
             </div>
             <Info>
-                <Button className={activeTab === "instructions" ? "active" : ''}
+                <Button className={activeTab === "instructions" ? "active" : ""}
                         onClick={() => setActiveTab("instructions")}>Instruction</Button>
-                <Button className={activeTab === "ingredients" ? "active" : ''}
+                <Button className={activeTab === "ingredients" ? "active" : ""}
                         onClick={() => setActiveTab("ingredients")}>Ingredients</Button>
                 {activeTab === "instructions" && (
                     <div>
