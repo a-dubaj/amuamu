@@ -14,6 +14,7 @@ function Recipe() {
         setDetails(detailData);
     };
 
+    // eslint-disable-next-line
     useEffect(() => {
         fetchDetails();
     }, [params.name]);
