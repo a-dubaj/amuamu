@@ -2,6 +2,8 @@
 
 -----
 
+AmuAmu is react based application that allows you to find some meals. 
+
 ### Tech stack
 - React.js
 - Node.js
