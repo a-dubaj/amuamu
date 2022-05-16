@@ -14,12 +14,11 @@ function Recipe() {
         setDetails(detailData);
     };
 
-
+    /* eslint-disable */
     useEffect(() => {
-        // eslint-disable-next-line
         fetchDetails();
     }, [params.name]);
-
+    /* eslint-enable */
     return (
         <DetailWrapper>
             <div>
