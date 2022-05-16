@@ -11,7 +11,7 @@ function App() {
             <BrowserRouter>
                 <Nav>
                     <GiKnifeFork />
-                    <Logo to={"/"}>deliciousss</Logo>
+                    <Logo to={"/"}>AmuAmu</Logo>
                 </Nav>
                 <Category/>
                 <Pages/>
