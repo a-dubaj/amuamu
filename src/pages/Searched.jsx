@@ -6,7 +6,6 @@ import {Link} from "react-router-dom";
 
 
 function Searched() {
-
     const [searchedRecipe, setSearchedRecipes] = useState([]);
     let params = useParams();
 
@@ -16,24 +15,22 @@ function Searched() {
         setSearchedRecipes(recipes.results);
     };
 
-
     useEffect(() => {
         getSearched(params.search);
     }, [params.search]);
 
     return <Grid>
         {searchedRecipe.map((item) => {
-            return(
+            return (
                 <Card key={item.id}>
                     <Link to={'/recipe' + item.id}>
-                    <img src={item.image} alt="" />
-                    <h4>{item.title}</h4>
+                        <img src={item.image} alt=""/>
+                        <h4>{item.title}</h4>
                     </Link>
                 </Card>
             );
         })}
     </Grid>
-
 }
 
 const Grid = styled.div`
