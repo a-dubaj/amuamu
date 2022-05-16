@@ -6,7 +6,7 @@ import React from "react";
 function Recipe() {
     let params = useParams();
     const [details, setDetails] = useState({});
-    const [activeTab, setActiveTab] = useState('instruction');
+    const [activeTab, setActiveTab] = useState("instructions");
 
     const fetchDetails = async () => {
         const data = await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`);
@@ -25,17 +25,22 @@ function Recipe() {
                 <img src={details.image} alt=""/>
             </div>
             <Info>
-                <Button className={activeTab === 'instructions' ? 'active' : ''}
+                <Button className={activeTab === "instructions" ? "active" : ''}
                         onClick={() => setActiveTab("instructions")}>Instruction</Button>
-                <Button className={activeTab === 'ingredients' ? 'active' : ''}
+                <Button className={activeTab === "ingredients" ? "active" : ''}
                         onClick={() => setActiveTab("ingredients")}>Ingredients</Button>
-                <div>
-                    <h3 dangerouslySetInnerHTML={{__html: details.summary}}></h3>
-                    <h3 dangerouslySetInnerHTML={{__html: details.instructions}}></h3>
-                </div>
-                <ul>
-                    {details.extendedIngredinets.map}
-                </ul>
+                {activeTab === "instructions" && (
+                    <div>
+                        <h3 dangerouslySetInnerHTML={{__html: details.summary}}></h3>
+                        <h3 dangerouslySetInnerHTML={{__html: details.instructions}}></h3>
+                    </div>
+                )}
+                {activeTab === "ingredients" && (
+                    <ul>{details.extendedIngredients.map((ingredient) => (
+                        <li key={ingredient.id}>{ingredient.original}</li>
+                    ))}
+                    </ul>
+                )}
             </Info>
         </DetailWrapper>
     );
@@ -70,6 +75,7 @@ const Button = styled.button`
   color: #313131;
   background: white;
   border: 2px solid black;
+  margin-right: 2rem;
   font-weight: 600;
 `;
 
