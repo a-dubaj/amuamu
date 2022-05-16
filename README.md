@@ -3,7 +3,7 @@
 -----
 
 ### Tech stack
-- Reack.js
+- React.js
 - Node.js
 - API: [Spoonacular API](https://spoonacular.com/food-api)
 
